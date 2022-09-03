@@ -5,13 +5,17 @@ pipeline {
     }
 
     stages {
-        stage('Install dependencies'){
-            steps {
-                dir(path: 'sources') {
-                    sh 'npm install @aws-cdk/aws-s3'
+        withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-terrauser', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {    
+            stage('Install dependencies'){
+                steps {
+                        sh 'npm install @aws-cdk/aws-s3'
+                }
+            }
+            stage('CDK bootstrap'){
+                steps {
+                    sh 'cdk bootstrap'
                 }
             }
         }
-
     }
 }
