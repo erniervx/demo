@@ -31,6 +31,7 @@ pipeline {
                             script {
                                 sh "set -x"
                                 sh "pip install -r requirements.txt"
+                                sh "export PATH=$PATH:/var/lib/jenkins/.asdf/shims"
                                 sh "cdk synth"
                                 sh "cdk bootstrap"
                             }
