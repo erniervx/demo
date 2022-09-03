@@ -20,10 +20,16 @@ pipeline {
                 }
             }
 
-            stage('CDK bootstrap'){
+            stage('CDK environment setup'){
                 steps {
                     withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-terrauser', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {    
-                        sh 'cdk bootstrap'
+                        sh '''
+                            python3 -m venv .venv
+                            source .venv/bin/activate
+                            pip install -r requirements.txt
+                            cdk synth
+                            cdk bootstrap
+                        '''
                     }
                 }
             }
