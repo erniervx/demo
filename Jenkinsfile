@@ -31,8 +31,8 @@ pipeline {
                             script {
 //                                sh "set -x"
                                 sh "pip3 install -r requirements.txt"
-                                sh "export PATH=$PATH:/var/lib/jenkins/.asdf/shims && cdk synth"
-//                                sh "cdk bootstrap"
+//                                sh "export PATH=$PATH:/var/lib/jenkins/.asdf/shims && cdk synth"
+                                sh "export PATH=$PATH:/var/lib/jenkins/.asdf/shims && cdk bootstrap"
                             }
                         }
                     }
