@@ -8,7 +8,7 @@ pipeline {
         AWS_DEFAULT_REGION="us-east-2"
     }
 
-    stage {
+    stages {
         stage('Install dependencies'){
             steps {
                 dir(path: 'sources') {
