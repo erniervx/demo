@@ -1,5 +1,5 @@
 pipeline {
-    agent { any }
+    agent { none }
     environment {
         AWS_DEFAULT_REGION="us-east-2"
     }
