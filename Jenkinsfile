@@ -29,6 +29,7 @@ pipeline {
 //                         '''
                         withPythonEnv('python') {
                             script {
+                                sh "set -x"
                                 sh "pip install -r requirements.txt"
                                 sh "cdk synth"
                                 sh "cdk bootstrap"
