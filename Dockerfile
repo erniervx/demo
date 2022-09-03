@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM bitnami/node:latest
 
 ENV SOURCE_DIR=/
 
