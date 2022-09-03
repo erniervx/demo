@@ -27,7 +27,7 @@ pipeline {
 //                            python3 -m venv .venv
 //                            source .venv/bin/activate
 //                         '''
-                        withPythonEnv('python') {
+                        withPythonEnv('/usr/bin/python3') {
                             script {
                                 sh "set -x"
                                 sh "pip install -r requirements.txt"
